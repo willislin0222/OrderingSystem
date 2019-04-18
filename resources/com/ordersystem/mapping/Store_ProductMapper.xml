@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ordersystem.dao.Store_Product_Interface">   <!-- 命名空间，名字可以随意起，只要不冲突即可 -->
+     
+    <!-- 返回list的select语句，注意 resultMap的值是指向前面定义好的 -->
+    <!-- <select id="selectUsersByName" parameterType="string" resultMap="userResultMap">
+        select * from user where user.userName = #{userName}
+    </select> -->
+     
+     <insert id="insert" parameterType="com.ordersystem.pojo.Store_ProductVO" useGeneratedKeys="true" keyProperty="spr_no">  
+        INSERT INTO Store_Product
+		(sto_no,spr_name,spr_type,spr_size,spr_unitprice)
+		VALUES(#{sto_no},#{spr_name},#{spr_type},#{spr_size},#{spr_unitprice}); 
+	</insert>
+	
+	<update id="update" parameterType="com.ordersystem.pojo.Store_ProductVO" >
+        update Store_Product set sto_no=#{sto_no},spr_name=#{spr_name},spr_type=#{spr_type},spr_size=#{spr_size},spr_unitprice=#{spr_unitprice} where spr_no=#{spr_no}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+        delete from Store_Product where spr_no=#{spr_no}
+    </delete>
+	 
+    <select id="findStore_ProductByPrimaryKey" parameterType="int" resultType="com.ordersystem.pojo.Store_ProductVO">
+        select * from Store_Product where spr_no= #{spr_no}
+    </select>
+    
+     <select id="getAll" resultType="com.ordersystem.pojo.Store_ProductVO">
+        select * from Store_Product
+    </select>
+    
+</mapper>

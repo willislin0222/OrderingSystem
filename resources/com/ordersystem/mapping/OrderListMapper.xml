@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ordersystem.dao.OrderList_Interface">   <!-- 命名空间，名字可以随意起，只要不冲突即可 -->
+     
+    <!-- 返回list的select语句，注意 resultMap的值是指向前面定义好的 -->
+    <!-- <select id="selectUsersByName" parameterType="string" resultMap="userResultMap">
+        select * from user where user.userName = #{userName}
+    </select> -->
+     
+     <insert id="insert" parameterType="com.ordersystem.pojo.OrderListVO" useGeneratedKeys="true" keyProperty="ord_no">  
+        INSERT INTO OrderList 
+		(sta_no,spr_no,ord_price,ord_count,ord_date)
+		VALUES(#{sta_no},#{spr_no},#{ord_price},#{ord_count},#{ord_date}); 
+	</insert>
+	
+	<update id="update" parameterType="com.ordersystem.pojo.OrderListVO" >
+        update OrderList set sta_no=#{sta_no},spr_no=#{spr_no},ord_price=#{ord_price},ord_count=#{ord_count},ord_date=#{ord_date} where ord_no=#{ord_no}
+    </update>
+    
+    <delete id="delete" parameterType="int">
+        delete from OrderList where ord_no=#{ord_no}
+    </delete>
+	 
+    <select id="findOrderListByPrimaryKey" parameterType="int" resultType="com.ordersystem.pojo.OrderListVO">
+        select * from OrderList where ord_no= #{ord_no}
+    </select>
+    
+     <select id="getAll" resultType="com.ordersystem.pojo.OrderListVO">
+        select * from OrderList
+    </select>
+    
+</mapper>
