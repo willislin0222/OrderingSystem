@@ -1,7 +1,9 @@
 package com.ordersystem.test;
  
 import java.sql.Date;
- 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
@@ -18,7 +20,7 @@ import com.ordersystem.service.Store_ProductService;
  
  
  
-public class TestStaffMybatis extends Junit4Test{
+public class StaffTest extends Junit4Test{
  
 	@Autowired
 	private StaffService staffService;	
@@ -40,7 +42,7 @@ public class TestStaffMybatis extends Junit4Test{
 	}
 	
 	private void testUser() {
-		//addStaff
+//		addStaff
 //		StaffVO staffVO = new StaffVO();
 //		staffVO.setSta_name("1234");
 //		staffVO.setSta_id("1081101");
@@ -50,30 +52,25 @@ public class TestStaffMybatis extends Junit4Test{
 //		staffVO.setSta_status("2");
 //		staffService.addStaff(staffVO);	
 		
-		//addStore
-//		StoreVO storeVO = new StoreVO();
-//		storeVO.setSto_name("一芳");
-//		storeVO.setSto_tel("03-3667188");
-//		storeVO.setSto_address("八德介壽路200號");
-//		storeService.addStore(storeVO);
+
+//		updateStaff
+//		StaffVO staffVO = new StaffVO();
+//		staffVO = staffService.getStaffByPK(25);
+//		staffVO.setSta_name("5678");
+//		staffVO.setSta_sex('F');
+//		staffVO.setSta_joindate(new Date(System.currentTimeMillis()));
+//		staffVO.setSta_status("1");
+//		staffService.updateStaff(staffVO);
 		
-		//addStore_product
-		Store_ProductVO store_ProductVO = new Store_ProductVO();
-		store_ProductVO.setSto_no(17);
-		store_ProductVO.setSpr_name("珍珠奶茶");
-		store_ProductVO.setSpr_type("飲料");
-		store_ProductVO.setSpr_size("中");
-		store_ProductVO.setSpr_unitprice("30");
-		store_productService.addStore_Product(store_ProductVO);
+//		deleteStaff
+//		staffService.deleteStaff(25);
 		
-		//addOrderList
-		OrderListVO orderListVO = new OrderListVO();
-		orderListVO.setSpr_no(12);
-		orderListVO.setSta_no(24);
-		orderListVO.setOrd_count("2");
-		orderListVO.setOrd_price("110");
-		orderListVO.setOrd_date(new Date(System.currentTimeMillis()));
-		orderListService.addOrderList(orderListVO);
+//		getAllStaff
+//		List<StaffVO> staffList = new ArrayList<StaffVO>();
+//		staffList = staffService.getAll();
+//		for(StaffVO staff:staffList){
+//			System.out.println(staff.getSta_id() + staff.getSta_name() + staff.getSta_tel());
+//		}
 		
 	}
 }
